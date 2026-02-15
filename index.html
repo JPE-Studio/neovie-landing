@@ -3,310 +3,979 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>neovie.dev – Software, die zu deinem Unternehmen passt</title>
-    <meta name="description" content="Maßgeschneiderte Softwarelösungen für KMU. Ohne Kompromisse. Zu fairen Preisen. Entwickelt mit moderner KI-Technologie.">
-    
-    <!-- Fonts -->
+    <meta name="description" content="Maßgeschneiderte Softwarelösungen für KMU. Ohne Kompromisse. Zu fairen Preisen. Entwickelt mit modernster KI-Technologie.">
+    <meta name="keywords" content="Softwareentwicklung, KMU, Custom Software, AI-Driven Development, Wien, Österreich">
+    <meta name="author" content="neovie.dev">
+
+    <title>neovie.dev | Software, die zu deinem Unternehmen passt</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "neovie.dev",
+        "description": "AI-Driven Development Agentur für KMU",
+        "url": "https://neovie.dev",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "AT",
+            "addressRegion": "Wien"
+        },
+        "priceRange": "€5,000 - €30,000+",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "hello@neovie.dev"
+        }
+    }
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF825C',
+                        primaryDark: '#E6704D',
+                        secondary: '#1A1A2E',
+                        secondaryLight: '#2A2A4E',
+                        accent: '#4ECDC4',
+                        success: '#95D5B2',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FF825C 0%, #FFB347 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #FF825C 0%, #FFB347 50%, #4ECDC4 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .blob {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: blob 8s ease-in-out infinite;
+        }
+
+        @keyframes blob {
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans text-gray-800 bg-white antialiased">
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <span class="logo-neo">neo</span><span class="logo-vie">vie</span><span class="logo-dev">.dev</span>
-            </a>
-            <div class="nav-links">
-                <a href="#leistungen" class="nav-link">Leistungen</a>
-                <a href="#prozess" class="nav-link">Prozess</a>
-                <a href="#preise" class="nav-link">Preise</a>
-                <a href="#kontakt" class="btn btn-sm">Kontakt</a>
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="font-heading font-bold text-2xl text-primary">
+                        neovie<span class="text-secondary">.dev</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#leistungen" class="text-gray-600 hover:text-primary transition-colors">Leistungen</a>
+                    <a href="#prozess" class="text-gray-600 hover:text-primary transition-colors">Prozess</a>
+                    <a href="#preise" class="text-gray-600 hover:text-primary transition-colors">Preise</a>
+                    <a href="#referenzen" class="text-gray-600 hover:text-primary transition-colors">Referenzen</a>
+                    <a href="#faq" class="text-gray-600 hover:text-primary transition-colors">FAQ</a>
+                    <a href="#kontakt" class="bg-primary hover:bg-primaryDark text-white px-5 py-2.5 rounded-lg font-semibold transition-colors">
+                        Erstgespräch vereinbaren
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#leistungen" class="block text-gray-600 hover:text-primary">Leistungen</a>
+                <a href="#prozess" class="block text-gray-600 hover:text-primary">Prozess</a>
+                <a href="#preise" class="block text-gray-600 hover:text-primary">Preise</a>
+                <a href="#referenzen" class="block text-gray-600 hover:text-primary">Referenzen</a>
+                <a href="#faq" class="block text-gray-600 hover:text-primary">FAQ</a>
+                <a href="#kontakt" class="block bg-primary text-white text-center px-5 py-2.5 rounded-lg font-semibold">
+                    Erstgespräch vereinbaren
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="aurora-bg"></div>
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    AI-Driven Development
-                </div>
-                <h1 class="hero-title">
-                    Software, die zu deinem<br>
-                    <span class="gradient-text">Unternehmen passt</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Maßgeschneiderte Softwarelösungen für KMU. Ohne Kompromisse. Zu fairen Preisen. 
-                    Entwickelt mit moderner KI-Technologie – <strong>3x schneller</strong> als traditionelle Agenturen.
-                </p>
-                <div class="hero-cta">
-                    <a href="#kontakt" class="btn btn-primary btn-lg">
-                        <span>Kostenloses Erstgespräch</span>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.167 10h11.666m0 0L10 4.167M15.833 10L10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                    <a href="#prozess" class="btn btn-secondary btn-lg">Wie wir arbeiten</a>
-                </div>
-                <div class="hero-trust">
-                    <div class="trust-item">
-                        <span class="trust-icon">⚡</span>
-                        <span>2-6 Wochen</span>
+    <section class="pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                        <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                        <span>Powered by AI</span>
                     </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">🎯</span>
-                        <span>Festpreisgarantie</span>
+
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-tight">
+                        Software, die zu deinem
+                        <span class="gradient-text">Unternehmen passt</span>
+                    </h1>
+
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        Maßgeschneiderte Softwarelösungen für KMU. Ohne Kompromisse. Zu fairen Preisen. Entwickelt mit modernster KI-Technologie.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#kontakt" class="hero-gradient text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-primary/30 hover:shadow-xl transition-shadow text-center">
+                            Kostenloses Erstgespräch vereinbaren
+                        </a>
+                        <a href="#leistungen" class="border-2 border-secondary text-secondary px-8 py-4 rounded-lg font-semibold text-lg hover:bg-secondary hover:text-white transition-colors text-center">
+                            Mehr erfahren
+                        </a>
                     </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">🇦🇹</span>
-                        <span>Made in Austria</span>
+
+                    <div class="flex items-center space-x-6 pt-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-white font-bold">3x</div>
+                            <span class="text-gray-600 text-sm">schneller als traditionelle Agenturen</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-bold">AT</div>
+                            <span class="text-gray-600 text-sm">Made in Austria</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="blob bg-gradient-to-br from-primary/20 to-accent/20 w-80 h-80 absolute -top-10 -right-10"></div>
+                    <div class="relative bg-secondary rounded-2xl p-8 shadow-2xl animate-float">
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="bg-secondaryLight rounded p-3">
+                                    <div class="text-gray-400 text-sm">// AI-generated Code</div>
+                                    <div class="text-accent text-sm">✨ Magic happens here</div>
+                                </div>
+                                <div class="bg-secondaryLight rounded p-3">
+                                    <div class="text-gray-400 text-sm">// Deployment</div>
+                                    <div class="text-success text-sm">🚀 Ready to launch</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-700">
+                                <span class="text-gray-400 text-sm">Build time</span>
+                                <span class="text-white font-semibold">2-6 weeks</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="grid-overlay"></div>
     </section>
 
     <!-- Problem Section -->
-    <section class="section section-dark" id="probleme">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Die Herausforderung</span>
-                <h2 class="section-title">Kennst du das?</h2>
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl mb-4">Kennst du das?</h2>
+                <p class="text-gray-600 text-lg">Das sind die häufigsten Probleme, die KMU bei Software-Projekten haben</p>
             </div>
-            <div class="bento-grid">
-                <div class="bento-card bento-large">
-                    <div class="card-icon">📊</div>
-                    <h3 class="card-title">Excel-Chaos</h3>
-                    <p class="card-text">Deine Prozesse laufen über zig Excel-Tabellen, die niemand mehr durchschaut. Fehler schleichen sich ein, Daten gehen verloren.</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-4xl">📊</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Excel-Chaos</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Deine Prozesse laufen über zig Excel-Tabellen, die niemand mehr durchschaut. Fehler schleichen sich ein, Zeit wird verschwendet.
+                    </p>
                 </div>
-                <div class="bento-card">
-                    <div class="card-icon">💸</div>
-                    <h3 class="card-title">Teure Standardsoftware</h3>
-                    <p class="card-text">Du zahlst für Funktionen, die du nie nutzt, und wünschst dir Features, die fehlen.</p>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-4xl">💸</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Teure Standardsoftware</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Du zahlst für Funktionen, die du nie nutzt, und wünschst dir Features, die fehlen. Ein-Zweck-Software für jeden Fall.
+                    </p>
                 </div>
-                <div class="bento-card">
-                    <div class="card-icon">⏰</div>
-                    <h3 class="card-title">Entwicklung dauert ewig</h3>
-                    <p class="card-text">Agenturen brauchen Monate für simple Features. Du brauchst Lösungen – jetzt.</p>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                        <span class="text-4xl">⏰</span>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Entwicklung dauert ewig</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Agenturen brauchen Monate für simple Features. Du wartest, während dein Markt nicht wartet. Zeit ist Geld.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution/Process Section -->
-    <section class="section" id="prozess">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Unser Ansatz</span>
-                <h2 class="section-title">So arbeiten wir</h2>
+    <!-- Process Section -->
+    <section id="prozess" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl mb-4">So arbeiten wir</h2>
+                <p class="text-gray-600 text-lg">Drei Schritte zu deiner maßgeschneiderten Software</p>
             </div>
-            <div class="process-grid">
-                <div class="process-card">
-                    <div class="process-number">01</div>
-                    <div class="process-icon">🔍</div>
-                    <h3 class="process-title">Verstehen</h3>
-                    <p class="process-text">In einem 30-minütigen Erstgespräch analysieren wir deine Prozesse und definieren gemeinsam die Ziele.</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="relative">
+                    <div class="bg-secondary rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-3xl">🔍</span>
+                        </div>
+                        <div class="text-primary font-heading font-bold text-lg mb-2">Schritt 1</div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-4">Verstehen</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                30-minütiges Erstgespräch
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                Wir analysieren deine Prozesse
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                Gemeinsame Definition der Ziele
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold">→</div>
+                    </div>
                 </div>
-                <div class="process-card">
-                    <div class="process-number">02</div>
-                    <div class="process-icon">⚡</div>
-                    <h3 class="process-title">Entwickeln</h3>
-                    <p class="process-text">Mit KI-gestützter Entwicklung und wöchentlichen Updates siehst du regelmäßig Fortschritte.</p>
+
+                <!-- Step 2 -->
+                <div class="relative">
+                    <div class="bg-secondary rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-3xl">⚡</span>
+                        </div>
+                        <div class="text-accent font-heading font-bold text-lg mb-2">Schritt 2</div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-4">Entwickeln</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                KI-gestützte Entwicklung
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Wöchentliche Updates
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">✓</span>
+                                Du siehst regelmäßig Fortschritte
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                        <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold">→</div>
+                    </div>
                 </div>
-                <div class="process-card">
-                    <div class="process-number">03</div>
-                    <div class="process-icon">🚀</div>
-                    <h3 class="process-title">Liefern</h3>
-                    <p class="process-text">Deployment, Schulung und Dokumentation. Deine Software geht live – in Wochen, nicht Monaten.</p>
+
+                <!-- Step 3 -->
+                <div class="relative">
+                    <div class="bg-secondary rounded-2xl p-8 h-full">
+                        <div class="w-16 h-16 bg-success rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-3xl">🚀</span>
+                        </div>
+                        <div class="text-success font-heading font-bold text-lg mb-2">Schritt 3</div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-4">Liefern</h3>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                Deployment & Schulung
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                Dokumentation
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent mr-2">✓</span>
+                                Support-Optionen
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="section section-dark" id="leistungen">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Leistungen</span>
-                <h2 class="section-title">Was wir für dich bauen</h2>
+    <section id="leistungen" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl mb-4">Was wir für dich bauen</h2>
+                <p class="text-gray-600 text-lg">Lösungen, die wirklich passen</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3 class="service-title">Interne Tools</h3>
-                    <p class="service-desc">Software für deine Mitarbeiter: Lagerverwaltung, Auftragsmanagement, Zeiterfassung.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-3xl">🏢</span>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl mb-2">Interne Tools</h3>
+                            <p class="text-gray-600 mb-4">Software für deine Mitarbeiter, die Prozesse automatisiert und Zeit spart.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Lagerverwaltung</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Auftragsmanagement</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3 class="service-title">Kundenportale</h3>
-                    <p class="service-desc">Externe Plattformen: Kundenlogin, Bestellsysteme, Self-Service-Portale.</p>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-3xl">👥</span>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl mb-2">Kunden-Portale</h3>
+                            <p class="text-gray-600 mb-4">Externe Plattformen, die deine Kunden lieben werden. Selbstbedienung 24/7.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Kundenlogin</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Bestellsysteme</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3 class="service-title">Automation</h3>
-                    <p class="service-desc">Zeit sparen durch Automatisierung: Rechnungsstellung, Reporting, Workflows.</p>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-3xl">⚙️</span>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl mb-2">Automation</h3>
+                            <p class="text-gray-600 mb-4">Zeit sparen durch intelligente Automatisierung. Manuelle Arbeit belongs to the past.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Rechnungstellung</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Reporting</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🔌</div>
-                    <h3 class="service-title">Schnittstellen</h3>
-                    <p class="service-desc">Systeme verbinden: API-Integrationen, Datenabgleich, Legacy-Systeme anbinden.</p>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="text-3xl">🔗</span>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl mb-2">Schnittstellen</h3>
+                            <p class="text-gray-600 mb-4">Systeme verbinden, Datenabgleich, API-Integrationen. Alles synchronisiert.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">API-Integrationen</span>
+                                <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Datenabgleich</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Comparison Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Der Unterschied</span>
-                <h2 class="section-title">Warum neovie.dev?</h2>
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl mb-4">Der Unterschied</h2>
+                <p class="text-gray-600 text-lg">Warum wir anders sind</p>
             </div>
-            <div class="comparison-table">
-                <div class="comparison-header">
-                    <div class="comparison-col"></div>
-                    <div class="comparison-col comparison-col-other">Andere Agenturen</div>
-                    <div class="comparison-col comparison-col-us">neovie.dev</div>
+
+            <div class="bg-secondary rounded-2xl p-8 md:p-12 overflow-x-auto">
+                <table class="w-full min-w-[600px]">
+                    <thead>
+                        <tr>
+                            <th class="text-left text-gray-400 font-semibold pb-6">Feature</th>
+                            <th class="text-left text-gray-400 font-semibold pb-6">Andere Agenturen</th>
+                            <th class="text-left text-primary font-semibold pb-6">neovie.dev</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-gray-700">
+                            <td class="py-4 text-white">Zeit</td>
+                            <td class="py-4 text-gray-400">3-6 Monate</td>
+                            <td class="py-4 text-accent font-semibold">2-6 Wochen</td>
+                        </tr>
+                        <tr class="border-t border-gray-700">
+                            <td class="py-4 text-white">Preis</td>
+                            <td class="py-4 text-gray-400">Opaque, Nachkalkulation</td>
+                            <td class="py-4 text-accent font-semibold">Transparent, Festpreis</td>
+                        </tr>
+                        <tr class="border-t border-gray-700">
+                            <td class="py-4 text-white">Flexibilität</td>
+                            <td class="py-4 text-gray-400">Change Requests = Aufpreis</td>
+                            <td class="py-4 text-accent font-semibold">Iterativ & agil</td>
+                        </tr>
+                        <tr class="border-t border-gray-700">
+                            <td class="py-4 text-white">Technologie</td>
+                            <td class="py-4 text-gray-400">Legacy-Stack</td>
+                            <td class="py-4 text-accent font-semibold">Modern + AI-Powered</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-12 flex flex-wrap justify-center gap-6">
+                <div class="flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full">
+                    <span class="text-2xl">✨</span>
+                    <span class="text-primary font-medium">Powered by AI</span>
                 </div>
-                <div class="comparison-row">
-                    <div class="comparison-col comparison-label">Entwicklungszeit</div>
-                    <div class="comparison-col comparison-col-other">3-6 Monate</div>
-                    <div class="comparison-col comparison-col-us highlight">2-6 Wochen</div>
+                <div class="flex items-center space-x-2 bg-accent/10 px-4 py-2 rounded-full">
+                    <span class="text-2xl">🇦🇹</span>
+                    <span class="text-accent font-medium">Made in Austria</span>
                 </div>
-                <div class="comparison-row">
-                    <div class="comparison-col comparison-label">Preisgestaltung</div>
-                    <div class="comparison-col comparison-col-other">Undurchsichtig, Nachkalkulation</div>
-                    <div class="comparison-col comparison-col-us highlight">Transparent, Festpreis</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-col comparison-label">Flexibilität</div>
-                    <div class="comparison-col comparison-col-other">Change Requests = Aufpreis</div>
-                    <div class="comparison-col comparison-col-us highlight">Iterativ & agil</div>
-                </div>
-                <div class="comparison-row">
-                    <div class="comparison-col comparison-label">Technologie</div>
-                    <div class="comparison-col comparison-col-other">Legacy-Stack</div>
-                    <div class="comparison-col comparison-col-us highlight">Modern + AI-Powered</div>
+                <div class="flex items-center space-x-2 bg-secondary/10 px-4 py-2 rounded-full">
+                    <span class="text-2xl">🏢</span>
+                    <span class="text-secondary font-medium">KMU-Spezialist</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section class="section section-dark" id="preise">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Investition</span>
-                <h2 class="section-title">Transparente Preise</h2>
-                <p class="section-subtitle">Keine versteckten Kosten. Festpreisgarantie nach Anforderungsanalyse.</p>
+    <section id="preise" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl mb-4">Investition</h2>
+                <p class="text-gray-600 text-lg">Transparente Preise. Keine versteckten Kosten. Festpreisgarantie.</p>
             </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">💡 Starter</h3>
-                        <div class="pricing-price">€5.000 – €10.000</div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="text-center mb-8">
+                        <div class="text-4xl mb-4">💡</div>
+                        <h3 class="font-heading font-bold text-2xl mb-2">STARTER</h3>
+                        <div class="flex items-baseline justify-center gap-2">
+                            <span class="text-4xl font-bold">€5.000</span>
+                            <span class="text-gray-600">- €10.000</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mt-2">Für kleine Betriebe</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li>Ein Feature oder Tool</li>
-                        <li>2-3 Wochen Entwicklung</li>
-                        <li>Basis-Support (1 Monat)</li>
-                        <li>Einrichtung & Schulung</li>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>Ein Feature</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>2-3 Wochen</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>Basis-Support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>Einrichtung</span>
+                        </li>
                     </ul>
-                    <div class="pricing-footer">
-                        <span class="pricing-target">Für kleine Betriebe</span>
-                    </div>
+
+                    <a href="#kontakt" class="block w-full border-2 border-secondary text-secondary text-center py-3 rounded-lg font-semibold hover:bg-secondary hover:text-white transition-colors">
+                        Jetzt anfragen
+                    </a>
                 </div>
-                <div class="pricing-card pricing-featured">
-                    <div class="pricing-badge">Beliebt</div>
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">🚀 Professional</h3>
-                        <div class="pricing-price">€15.000 – €30.000</div>
+
+                <!-- Professional -->
+                <div class="bg-secondary rounded-2xl p-8 shadow-xl card-hover relative transform md:-translate-y-4">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
+                            Beliebteste Wahl
+                        </div>
                     </div>
-                    <ul class="pricing-features">
-                        <li>Komplettlösung</li>
-                        <li>4-8 Wochen Entwicklung</li>
-                        <li>Prioritäts-Support (3 Monate)</li>
-                        <li>Dokumentation & Handbuch</li>
-                        <li>Quarterly Review</li>
+
+                    <div class="text-center mb-8">
+                        <div class="text-4xl mb-4">🚀</div>
+                        <h3 class="font-heading font-bold text-2xl text-white mb-2">PROFESSIONAL</h3>
+                        <div class="flex items-baseline justify-center gap-2">
+                            <span class="text-4xl font-bold text-white">€15.000</span>
+                            <span class="text-gray-400">- €30.000</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mt-2">Für mittlere KMU</p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2">✓</span>
+                            <span class="text-white">Komplettlösung</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2">✓</span>
+                            <span class="text-white">4-8 Wochen</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2">✓</span>
+                            <span class="text-white">Priorität-Support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2">✓</span>
+                            <span class="text-white">Schulung</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent mr-2">✓</span>
+                            <span class="text-white">Dokumentation</span>
+                        </li>
                     </ul>
-                    <div class="pricing-footer">
-                        <span class="pricing-target">Für mittlere KMU</span>
-                    </div>
+
+                    <a href="#kontakt" class="block w-full hero-gradient text-white text-center py-3 rounded-lg font-semibold shadow-lg shadow-primary/30">
+                        Jetzt anfragen
+                    </a>
                 </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">🏢 Enterprise</h3>
-                        <div class="pricing-price">Ab €30.000</div>
+
+                <!-- Enterprise -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="text-center mb-8">
+                        <div class="text-4xl mb-4">🏢</div>
+                        <h3 class="font-heading font-bold text-2xl mb-2">ENTERPRISE</h3>
+                        <div class="flex items-baseline justify-center gap-2">
+                            <span class="text-4xl font-bold">Ab €30.000</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mt-2">Für größere KMU</p>
                     </div>
-                    <ul class="pricing-features">
-                        <li>Mehrere Module</li>
-                        <li>8+ Wochen Entwicklung</li>
-                        <li>Dedicated Support (6 Monate)</li>
-                        <li>On-Site Training</li>
-                        <li>SLA inklusive</li>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>Mehrere Module</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>8+ Wochen</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>Dedicated Support</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>On-Site-Training</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">✓</span>
+                            <span>Custom Integration</span>
+                        </li>
                     </ul>
-                    <div class="pricing-footer">
-                        <span class="pricing-target">Für größere KMU</span>
-                    </div>
+
+                    <a href="#kontakt" class="block w-full border-2 border-secondary text-secondary text-center py-3 rounded-lg font-semibold hover:bg-secondary hover:text-white transition-colors">
+                        Jetzt anfragen
+                    </a>
                 </div>
             </div>
-            <div class="pricing-note">
-                <p>💡 <strong>Spartipp:</strong> Mit KMU-Digital Förderung kannst du bis zu <strong>50% der Kosten</strong> zurückbekommen. Wir unterstützen dich bei der Antragstellung.</p>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 text-sm">
+                    💡 Hinweis: Bis zu 50% Förderung durch <a href="https://www.kmu-digital.at" target="_blank" class="text-primary hover:underline">KMU-Digital</a> möglich.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section cta-section" id="kontakt">
-        <div class="aurora-bg aurora-bg-alt"></div>
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Lass uns reden</h2>
-                <p class="cta-text">In einem kostenlosen 30-minütigen Gespräch schauen wir uns deine Prozesse an und zeigen dir, was möglich ist.</p>
-                <a href="mailto:hello@neovie.dev?subject=Erstgespräch%20anfragen" class="btn btn-primary btn-xl">
-                    <span>Termin vereinbaren</span>
-                    <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.167 10h11.666m0 0L10 4.167M15.833 10L10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <div class="cta-alt">
-                    Oder schreib uns direkt: <a href="mailto:hello@neovie.dev">hello@neovie.dev</a>
+    <!-- References Section -->
+    <section id="referenzen" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl mb-4">Das sagen unsere Kunden</h2>
+                <p class="text-gray-600 text-lg">Echte Erfahrungen. Echte Ergebnisse.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "In 4 Wochen ein funktionierendes Tool, was unsere Prozesse revolutioniert hat. Unglaublich schnell und professionell."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">MH</div>
+                        <div>
+                            <div class="font-semibold">Markus H.</div>
+                            <div class="text-gray-600 text-sm">Geschäftsführer, Handwerksbetrieb</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Klare Kommunikation, transparente Preise und ein Team, das wirklich versteht, was wir brauchen. So sollte Software-Entwicklung sein."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold">SK</div>
+                        <div>
+                            <div class="font-semibold">Sarah K.</div>
+                            <div class="text-gray-600 text-sm">Marketing Manager, Dienstleister</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <div class="flex items-center space-x-1 mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">
+                        "Die Förderberatung war der Hammer. Wir haben 50% unserer Kosten zurückerhalten. Das hätte ich nie allein geschafft."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold">TW</div>
+                        <div>
+                            <div class="font-semibold">Thomas W.</div>
+                            <div class="text-gray-600 text-sm">CEO, Handel</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16">
+                <h3 class="font-heading font-bold text-2xl text-center mb-8">Case Studies</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Case Study 1 -->
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-heading font-bold text-lg">uxcon vienna</h4>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">Event-Tool</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Hybrid-Eventtool mit Livestream & Matchmaking. 2.500+ Teilnehmer, real-time Interaktionen.
+                        </p>
+                        <div class="flex items-center space-x-4 text-sm text-gray-500">
+                            <span>⏱️ 6 Wochen</span>
+                            <span>👥 2.500+ Teilnehmer</span>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 2 -->
+                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-heading font-bold text-lg">SIA</h4>
+                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm">Sharing-App</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Sharing-App mit Design-System. Onboarding, Payment, User Management.
+                        </p>
+                        <div class="flex items-center space-x-4 text-sm text-gray-500">
+                            <span>⏱️ 4 Wochen</span>
+                            <span>👥 1.000+ User</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 md:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl mb-4">Häufig gestellte Fragen</h2>
+                <p class="text-gray-600 text-lg">Alles was du wissen musst</p>
+            </div>
+
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ Items werden durch JavaScript hinzugefügt -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontakt" class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl mb-6">Lass uns reden</h2>
+                    <p class="text-gray-600 text-lg mb-8">
+                        In einem kostenlosen 30-minütigen Gespräch schauen wir uns deine Prozesse an und zeigen dir, was möglich ist. Unverbindlich.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">📧</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold mb-1">Email</div>
+                                <a href="mailto:hello@neovie.dev" class="text-primary hover:underline">hello@neovie.dev</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">📍</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold mb-1">Standort</div>
+                                <span class="text-gray-600">Wien, Österreich</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <span class="text-2xl">⏰</span>
+                            </div>
+                            <div>
+                                <div class="font-semibold mb-1">Antwortzeit</div>
+                                <span class="text-gray-600">Innerhalb von 24 Stunden</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-xl">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                placeholder="Dein Name">
+                        </div>
+
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Firma</label>
+                            <input type="text" id="company" name="company"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                placeholder="Deine Firma (optional)">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-Mail</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                placeholder="deine@email.com">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Was brauchst du?</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                placeholder="Erzähle uns von deinem Projekt..."></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full hero-gradient text-white py-4 rounded-lg font-semibold text-lg shadow-lg shadow-primary/30 hover:shadow-xl transition-shadow">
+                            Nachricht senden
+                        </button>
+
+                        <p class="text-center text-gray-600 text-sm">
+                            Oder <a href="https://calendly.com" target="_blank" class="text-primary hover:underline">Termin direkt buchen</a>
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <span class="logo-neo">neo</span><span class="logo-vie">vie</span><span class="logo-dev">.dev</span>
-                    </a>
-                    <p class="footer-tagline">Software, die zu deinem Unternehmen passt.</p>
+    <footer class="bg-secondary py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="font-heading font-bold text-2xl text-white mb-4">
+                        neovie<span class="text-primary">.dev</span>
+                    </div>
+                    <p class="text-gray-400">
+                        AI-Driven Development für KMU. Maßgeschneidert. Schnell. Fair.
+                    </p>
                 </div>
-                <div class="footer-links">
-                    <a href="#leistungen">Leistungen</a>
-                    <a href="#prozess">Prozess</a>
-                    <a href="#preise">Preise</a>
-                    <a href="mailto:hello@neovie.dev">Kontakt</a>
+
+                <div>
+                    <h4 class="font-heading font-semibold text-white mb-4">Leistungen</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#leistungen" class="hover:text-primary transition-colors">Interne Tools</a></li>
+                        <li><a href="#leistungen" class="hover:text-primary transition-colors">Kunden-Portale</a></li>
+                        <li><a href="#leistungen" class="hover:text-primary transition-colors">Automation</a></li>
+                        <li><a href="#leistungen" class="hover:text-primary transition-colors">Schnittstellen</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-semibold text-white mb-4">Unternehmen</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#referenzen" class="hover:text-primary transition-colors">Referenzen</a></li>
+                        <li><a href="#preise" class="hover:text-primary transition-colors">Preise</a></li>
+                        <li><a href="#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="#kontakt" class="hover:text-primary transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-semibold text-white mb-4">Social</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">GitHub</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Twitter</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 neovie.dev – Made with ❤️ in Vienna</p>
+
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2026 neovie.dev. Alle Rechte vorbehalten.
+                </p>
+                <div class="flex space-x-6 text-gray-400 text-sm">
+                    <a href="#" class="hover:text-primary transition-colors">Impressum</a>
+                    <a href="#" class="hover:text-primary transition-colors">Datenschutz</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ Data
+        const faqData = [
+            {
+                question: "Wie lange dauert die Entwicklung?",
+                answer: "Das hängt vom Umfang ab: Starter-Pakete in 2-3 Wochen, Professional in 4-8 Wochen, Enterprise in 8+ Wochen. KI beschleunigt alles um das 3-fache."
+            },
+            {
+                question: "Was kostet eine Anfrage?",
+                answer: "Gar nichts. Das Erstgespräch ist kostenlos und unverbindlich. Wir schauen uns deine Anforderungen an und geben dir eine Einschätzung."
+            },
+            {
+                question: "Welche Technologien nutzt ihr?",
+                answer: "Wir nutzen moderne Stacks wie React, Next.js, Node.js und AI-Tools wie Cursor, Claude und GPT-4. Skalierbar, performant und zukunftssicher."
+            },
+            {
+                question: "Was ist mit Wartung & Support?",
+                answer: "Alle Pakete beinhalten Support (1-6 Monate, je nach Paket). Danach bieten wir Wartungsverträge ab €500/Monat an."
+            },
+            {
+                question: "Kann die Software später erweitert werden?",
+                answer: "Ja, absolut! Wir bauen alles skalierbar. Neue Features, Module, Integrationen – alles möglich."
+            }
+        ];
+
+        // Render FAQ
+        const faqContainer = document.getElementById('faq-container');
+        faqData.forEach((faq, index) => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'bg-white rounded-xl shadow-md overflow-hidden';
+            faqItem.innerHTML = `
+                <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors faq-toggle">
+                    <span class="font-semibold pr-4">${faq.question}</span>
+                    <svg class="w-5 h-5 transform transition-transform faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="px-6 pb-4 hidden faq-content">
+                    <p class="text-gray-600">${faq.answer}</p>
+                </div>
+            `;
+            faqContainer.appendChild(faqItem);
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('.faq-icon');
+
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Danke für deine Nachricht! Wir melden uns innerhalb von 24 Stunden.');
+            e.target.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
